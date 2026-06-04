@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-
 # Import Required Libraires
 import pandas as pd
 import matplotlib.pyplot as plt

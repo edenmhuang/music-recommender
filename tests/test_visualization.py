@@ -1,24 +1,14 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-
-# Import Required Libraires
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-
 
 # Configure Dataset
 data = pd.read_csv('Best Songs on Spotify from 2000-2023.csv', sep = ";")
 df = pd.DataFrame(data)
 df = df.drop_duplicates(subset=["title"],keep="first")
 
-
 df['title'] = df['title'].str.lower()
 df['artist'] = df['artist'].str.lower()
-
-
 
 # Count the number of popular songs for each artist and select the top 20
 popular_songs_count = df['artist'].value_counts().head(20)

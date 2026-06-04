@@ -1,11 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import pandas as pd
 
-
 pd.set_option('display.max_rows', None)
-
 
 # Configure Dataset
 data = pd.read_csv('Best Songs on Spotify from 2000-2023.csv', sep = ";")

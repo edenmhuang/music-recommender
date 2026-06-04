@@ -5,28 +5,16 @@
 import pandas as pd
 import numpy as np
 
-
-
-
-file_path = 'Best Songs on Spotify from 2000-2023.csv'
-
-
+file_path = 'best_songs_spotify_2000_2023.csv'
 
 df = pd.read_csv(file_path, sep=';') 
 
-
 # <b>popularity - Measures how popular a song is on Spotify from 0-100</b>
-
-
 
 df = df.drop(df.iloc[:, 4:13],axis = 1) #drop columns 4-14
 
 
-
 pd.set_option('display.max_rows', 20)
-
-
-
 
 unique_values = df['top genre'].unique() # Give amount of unique genres
 len(unique_values)
@@ -44,12 +32,7 @@ print(value_counts)
 # (mambo chileno, australian psych, new french touch, indonesian jazz, slowed and reverb, soca)
 # (dutch trance, celtic, techno)
 
-
-
-
 df
-
-
 
 
 # Give song in desired genre
@@ -59,7 +42,6 @@ songs_info = filtered_df[['title', 'artist', 'year']].values.tolist()
 
 
 songs_info
-
 
 
 # Store similar genres into a more general genreun
@@ -97,11 +79,9 @@ for index, row in df.iterrows():
 print(hip_hop_songs)
 
 
-
 desired_genres = rock_songs 
 filtered_df = df[df['top genre'].isin(desired_genres)]
 songs_info = filtered_df[['title', 'artist', 'year']].values.tolist()
-
 
 
 songs_info

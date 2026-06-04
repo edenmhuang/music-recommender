@@ -1,12 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-
 # Import Required Libraires
 import pandas as pd
 import ipywidgets as widgets
-
-
 
 # Configure Dataset
 data = pd.read_csv('Best Songs on Spotify from 2000-2023.csv', sep = ";")

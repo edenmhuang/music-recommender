@@ -1,16 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-
-
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-
-
 data = pd.read_csv('Best Songs on Spotify from 2000-2023.csv', sep=';')
-
 
 df = pd.DataFrame(data)
 
@@ -28,8 +20,6 @@ selected_song = {
     'speechiness': 7,
     'popularity': 98
 }
-
-
 
 # Calculate cosine similarity for acoustic features
 acoustic_features = ['bpm', 'energy', 'danceability ', 'dB', 'liveness', 'valence', 'duration', 'acousticness', 'speechiness ', 'popularity']

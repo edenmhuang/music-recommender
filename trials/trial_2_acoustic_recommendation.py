@@ -1,18 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-
-
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-
-
 data = pd.read_csv('Best Songs on Spotify from 2000-2023.csv', sep=';')
-
-
 
 
 # Create a DataFrame
@@ -23,8 +14,6 @@ selected_song = {
     'title': 'Flowers',
     
 }
-
-
 
 
 # User Selects song by Title from database
@@ -76,11 +65,7 @@ else:
     print("Selected song not found in the database.")
 
 
-
-
 df[feature]
-
-
 
 
 # Calculate cosine similarity for acoustic features
@@ -97,27 +82,16 @@ df['similarity'] = cosine_similarity(df[acoustic_features], selected_song_vector
 
 recommended_songs = df.sort_values(by='similarity', ascending=False)[['title', 'artist', 'similarity']]
 
-
-
-
 df.sort_values(by='similarity', ascending=False)[['title']]
-
-
 
 
 cosine_similarity(df[acoustic_features], selected_song_vector).flatten()
 
 
-
-
 df[acoustic_features]
 
 
-
-
 df[df['title'] == selected_song['title']][acoustic_features]
-
-
 
 
 acoustic_features = ['bpm', 'energy', 'danceability ', 'dB', 'liveness', 'valence', 'duration', 'acousticness', 'speechiness ', 'popularity']
@@ -127,56 +101,31 @@ for feature in acoustic_features:
     df[feature] = (df[feature] - df[feature].min()) / (df[feature].max() - df[feature].min())
    
 
-
-
-
 df[feature]
 
-
-
 acoustic_features = ['bpm', 'energy', 'danceability ', 'dB', 'liveness', 'valence', 'duration', 'acousticness', 'speechiness ']
-
-
-
-
 
 for feature in acoustic_features: 
     print(feature)
 
 
-
-
 (df[feature] - df[feature].min()) / (df[feature].max() - df[feature].min())
-
-
 
 
 df[feature]
 
 
-
-
-
 (df[feature] - df[feature].min())
 
 
-
-
 (df[feature].max() - df[feature].min())
-
 
 
 for feature in acoustic_features: 
     print(acoustic_features)
 
 
-
-
-
 selected_song['title']
-
-
-
 
 
 df[df['title'] == selected_song['title']][acoustic_features]

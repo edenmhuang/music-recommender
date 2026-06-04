@@ -1,54 +1,58 @@
-# Recommender-System-Using-Cosine-Similarity
+# Music Recommender System using Cosine Similarity
 
+Cosine similarity is typically used in NLP to measure the 
+similarity between text and documents. I wanted to explore 
+whether it could be applied to music audio features instead 
+to recommend songs without needing any user behavior data.
 
+The idea: if two songs share similar acoustic characteristics 
+(bpm, energy, danceability, etc.), cosine similarity should 
+be able to identify them as similar and recommend them together.
 
-<h2> Goal </h2>
-<p> A Python program that reads a CSV file on music data, takes an individual's song choice, and outputs similar songs using cosine similarity. </p>
+I wrote a full research blog on Medium about this project:
+[Cosine Similarity for Recommender Systems](https://medium.com/@edhuang392/recommender-system-using-cosine-similarity-an-honors-research-project-on-music-recommendation-120bfc8806ba)
 
-<h2> Why is this necessary? </h2>
-<p> Traditional systems rely on complex algorithms to analyze user behavior and preferences to suggest songs or playlists that align with individual tastes. However, I wanted to research whether I was able to utilize a dataset of songs, each characterized by a set of acoustic features (e.g., bpm, energy, danceability, etc.) and popularity. To recommend songs without the need of user data.
-</p>
+## How it works
 
-<h2> What is Cosine Similarity? </h2>
-<p> Cosine Similarity is a similarity metric that examines the cosine angle between two vectors in a multi-dimensional space. For example, it assesses the relationship between the music characteristics of two songs and outputs their similarity.
-</p>
+1. User selects an artist
+2. User selects a song from that artist
+3. The system normalizes all audio features between 0 and 1
+4. Cosine similarity is calculated between the selected song 
+   and every other song in the dataset
+5. Songs are ranked by similarity score and recommended
 
+## Key finding
 
-<h2> CSV file Data description: </h2>
-<p>source: www.kaggle.com/datasets/conorvaneden/best-songs-on-spotify-for-every-year-2000-2023</p>
-<b>
-<ul>
-  <li>title - Name of Song;</li>
-  <li>artist - Name of the Artist;</li>
-  <li>top genre - The genre of the song</li>
-  <li>year - The year the song was releasedThe year the song was released</li>
-  <li>bpm - BPM (Beats Per Minute). Represents the tempo of the song</li>
-  <li>energy - Shows the level of energy in a song. The higher the value, the more energetic a song is. Values range from 0-100</li>
-  <li>danceability - The higher the value, the easier it is to dance to this song</li>
-  <li>dB - Represents volume/loudness of the song. dB stands for Decibel</li>
-  <li>liveness - The higher the value, the more likely the song is a live recording</li>
-  <li>valance - Describes the musical positiveness conveyed by a track. Tracks with high valence sound more positive</li>
-  <li>duration - The duration of the songs measured in seconds</li>
-  <li>acousticness - Measures how acoustic the song is from 0-100. e.g) A song with a higher value for acousticness has less singing</li>
-  <li>speechiness - Measures how much singing there is in a song from 0-100</li>
-  <li>popularity - Measures how popular a song is on Spotify from 0-100</li>
-</ul>
-</b>
+Songs with similar bpm, energy, and danceability scored high 
+cosine similarity values and sounded genuinely similar when 
+played together. For example Yellow by Coldplay and The Climb 
+by Miley Cyrus scored 0.996, and when played simultaneously 
+the bpm matched almost perfectly.
 
-<h2> Python Libraries </h2>
+## Dataset
 
-<h4> Pandas </h4> 
-[https://pandas.pydata.org/]
+Kaggle: Best Songs on Spotify 2000-2023 (~600 songs)
+Audio features include: bpm, energy, danceability, loudness, 
+liveness, valence, duration, acousticness, speechiness, 
+popularity
 
-<h4> Matplotlib </h4>  
-[https://matplotlib.org/]
+## Project Structure
 
-<h4> Seaborn </h4>
-[https://seaborn.pydata.org/]
+| Folder | Description |
+|--------|-------------|
+| data/ | Spotify songs dataset |
+| src/ | Main recommender system |
+| trials/ | Early experiments and approaches |
+| tests/ | Testing individual components |
 
-<h4> ipywidgets </h4>
-[https://ipywidgets.readthedocs.io/]
+## Tech Stack
 
-<h4> Scikit-learn (sklearn) </h4>
-[https://scikit-learn.org/stable/]
+Python, Pandas, Scikit-learn, Matplotlib, Seaborn, ipywidgets
 
+## Acknowledgements
+
+Thanks to Professor Bryan Swartout at Skyline College for 
+his guidance and peer review on this research project.
+
+## Personal Project
+Skyline College · 2023

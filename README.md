@@ -31,7 +31,7 @@ the bpm matched almost perfectly.
 
 ## Dataset
 
-Kaggle: Best Songs on Spotify 2000-2023 (~600 songs)
+Kaggle: Best Songs on Spotify 2000-2023 (~2300 songs)
 Audio features include: bpm, energy, danceability, loudness, 
 liveness, valence, duration, acousticness, speechiness, 
 popularity
